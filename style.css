@@ -1,73 +1,133 @@
 /*The grids - gestion des grilles */
+/* page grid*/
+.page {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 1fr 8fr 0,5fr;
+  grid-template-areas:
+  "grilleheader"
+  "main"
+  "footer";
+  width: 90%;
+}
 
-/* in the header*/
-.grillehead {
+
+/*grid in the header*/
+.grilleheader {
     display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 150px 200px 200px;
-   }
-
-   .header-one {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+    "profile-img header-one header-one header-one header-one"
+    "profile-img header-two header-two header-two header-two";
+    padding-bottom: 70px;
+    grid-area: grilleheader;
   }
-  .header-two { 
-    grid-column: 2 / 4;
-    grid-row: 1 / 2;
-  }
-  .header-three { 
-    grid-column: 3 / 5;
-    grid-row: 2 / 3;
-  }
-  .profile-img {
-	max-width: 120px;
-	height: auto;
-}
+    .profile-img {
+    height: auto;
+    max-width: 120px;
+    grid-area: profile-img;
+    background-color: aqua;
+    }
+    .header-one {
+      grid-area: header-one;
+      background-color: blue;
+    }
+    .header-two { 
+      grid-area: header-two;
+      background-color: crimson;
+      margin-left: 15%;
+    }
 
- /* grids in the main*/
-
- /* about */
-  .about {
+/* grids in the main*/
+ .main {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 5px;
-  background-color: orange;
-  grid-template-rows: auto;
+  grid-area: main;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: 
+  "cvs about"
+  "cvs contact";
  }
- .about-one {
-  grid-column: 1 / 4;
-  grid-row: 1 / 1;
-  background-color: green;
-  margin: 0px;
-  padding: 0px;
-}
-.about-two { 
-  grid-column: 1 / 4;
-  grid-row: 2 / 3;
-  background-color: red;
-}
 
-/* contact */
-.contact {
+/* grids cv*/
+.cvs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 5px;
-  background-color: orange;
-  grid-template-rows: auto;
+  grid-area: cvs;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: 
+  "cv1"
+  "cv2"
+  "cv3";
 }
-.contact-one {
-  grid-column: 1 / 4;
-  grid-row: 1 / 1;
-  background-color: green;
-  margin: 0px;
-  padding: 0px;
+.cv {
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  "logo post"
+  "logo txt";
 }
-.contact-two { 
-  grid-column: 1 / 4;
-  grid-row: 2 / 3;
-  background-color: red;
+.cv1 {
+  grid-area: cv1;
 }
+.cv2 {
+  grid-area: cv2;
+}
+.cv3 {
+  grid-area: cv3;
+}
+.logo {
+  grid-area: logo;
+}
+.post {
+  grid-area: post;
+  font-style: italic;
+  font-weight: bold;
+}
+.txt {
+  grid-area: txt;
+}
+.imglogo{
+  max-width: 100px;
+  height: auto;
+}
+  /* about */
+  .about {
+    background-color: orange;
+    grid-area: about;
+  }
+ /* contact */
+  .contact {
+    display: grid;
+    grid-area: contact;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 0,5fr;
+    grid-template-areas: 
+    "name"
+    "social";
+    background-color: black;
+  }
+      .name {
+        grid-area: name;
+        background-color: green;
+      }
+      .social { 
+        grid-area: social;
+        background-color: red;
+      }
 
+
+/*End grid in the main*/
+
+.footer {
+  grid-area: footer;
+  background-color: #435678;
+
+}
 
 /*format button - bouton*/
 .button {
@@ -96,12 +156,11 @@ body
   font-family: "Tahoma", Arial, sans-serif;
 }
 
-/*Titles - les balises h*/
 h1
 {
   font-size: 48px;
   font-family:"Segoe print", Arial, Helvetica, sans-serif;
   color: gray;
   font-style: italic;
-  line-height : 20%
+  margin: 0%;
 }
